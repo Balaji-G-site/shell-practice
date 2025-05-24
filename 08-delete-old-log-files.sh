@@ -12,7 +12,7 @@ SOURCE_DIR="/home/ec2-user/app-logs"
 
 mkdir -p $LOGS_FOLDER
 
-ifm[$USERID -ne 0]
+if[$USERID -ne 0]
 then 
     echo -e "$R ERROR::please run this script with root access $N" | tee -a $LOG_FILE
     exit 1
