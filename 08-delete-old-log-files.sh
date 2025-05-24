@@ -34,7 +34,7 @@ echo "script started executing at $(date)" | tee -a $LOG_FILE
 
 FILES_TO_DELETE=$(find $SOURCE_DIR -name "*.log" -mtime +14)
 
-while IFC=read -r filepath
+while IFC= read -r filepath
   do
     echo "deleting file:$filepath" | tee -a $LOG_FILE
     rm -rf $filepath
