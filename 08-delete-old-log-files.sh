@@ -8,11 +8,11 @@ N="\e[0m"
 LOGS_FOLDER="/var/log/shellscript-logs"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
-SOURCE_DIR="/home/ec2-user/app-logs"
+SOURCE_DIR=/home/ec2-user/app-logs
 
 mkdir -p $LOGS_FOLDER
 
-if[$USERID -ne 0]
+if [ $USERID -ne 0]
 then 
     echo -e "$R ERROR::please run this script with root access $N" | tee -a $LOG_FILE
     exit 1
