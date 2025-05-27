@@ -10,19 +10,19 @@ else
     echo "You are running with root access"
 fi
 
-dnf list installed nginx
+dnf list installed mysql
 
 if [ $? -nq 0 ]
 then
-    echo "Installing nginx...
-    dnf install nginx -y
+    echo "Installing mysql...
+    dnf install mysql -y
     if [ $? -eq 0]
     then
-        echo "Installing nginx is...SUCCESSFUL"
+        echo "Installing mysql is...SUCCESSFUL"
     else
-        echo "Installing nginx is...FAILURE"
+        echo "Installing mysql is...FAILURE"
         exit 1
     fi
 else
-    echo "nginx is already installed...nothing to do...
+    echo "mysql is already installed...nothing to do...
 fi
