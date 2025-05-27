@@ -24,5 +24,5 @@ then
         exit 1
     fi
 else
-    echo "nginx is already installed...nothing to do...
+    echo "nginx is already installed...nothing to do..."
 fi
