@@ -1,0 +1,29 @@
+#!/bin/bash
+
+USERID=$(id -u)
+
+if [ $USERID -ne 0 ]
+then    
+    echo "Error:: Please run this script with root user"
+    exit1
+else
+    echo "You are running with root user"
+fi
+
+dnf list installed Mysql
+
+if [ $? -ne 0 ]
+then
+    echo "MySql not installed, going to install"
+    dnf install mysql -y
+    if [ $? -ne 0 ]
+        echo "MySql is installed...SUCCESSFUL"
+    else
+        echo "MySql is installed...FAILURE"
+        exit1
+    fi
+
+else
+    echo "MySql is already installed nothing to do"
+    exit1
+fi
