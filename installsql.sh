@@ -3,47 +3,43 @@
 USERID=$(id -u)
 
 if [ $USERID -ne 0 ]
-then    
-    echo "Error:: Please run this script with root user"
+then
+    echo "ERROR :: please run this script with root user"
     exit1
 else
     echo "You are running with root user"
 fi
 
-dnf list installed Mysql
+dnf list installed mysql
 
 if [ $? -ne 0 ]
 then
-    echo "MySql not installed, going to install"
+    echo "mysql not installed...going to install"
+
     dnf install mysql -y
     if [ $? -eq 0 ]
-    then
-        echo "MySql is installed...SUCCESSFUL"
+    then 
+        echo "installed my sql is...SUCCESSFUL"
     else
-        echo "MySql is installed...FAILURE"
+        echo "installed mysql is...FAILURE"
         exit1
-    fi
-
 else
-    echo "MySql is already installed nothing to do"
+    echo "Mysql is already installed...nothing to do"
 fi
 
-dnf install nginx -y
+dnf list installed nginx
 
-if [ $? -eq 0 ]
-then 
-    echo "nginx installed...SUCCESSFUL"
+if [ $? -ne 0 ]
+then
+    echo "nginx not installed...going to install"
+
+    dnf install nginx -y
+    if [ $? -eq 0 ]
+    then 
+        echo "installed nginx is...SUCCESSFUL"
+    else
+        echo "installed nginx is...FAILURE"
+        exit1
 else
-    echo "nginx installed...FAILURE"
-    exit1
-fi
-
-dnf install mongodb
-
-if [ $? -eq 0 ]
-then 
-    echo "mongodb installed...SUCCESSFUL"
-else
-    echo "mongodb installed...FAILURE"
-    exit1
+    echo "nginx is already installed...nothing to do"
 fi
