@@ -41,6 +41,7 @@ then
     else
         echo "installed nginx is...FAILURE"
         exit1
+    fi
 else
     echo "nginx is already installed...nothing to do"
 fi
