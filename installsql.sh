@@ -27,3 +27,23 @@ then
 else
     echo "MySql is already installed nothing to do"
 fi
+
+dnf install nginx -y
+
+if [ $? -eq 0 ]
+then 
+    echo "nginx installed...SUCCESSFUL"
+else
+    echo "nginx installed...FAILURE"
+    exit1
+fi
+
+dnf install mongodb
+
+if [ $? -eq 0 ]
+then 
+    echo "mongodb installed...SUCCESSFUL"
+else
+    echo "mongodb installed...FAILURE"
+    exit1
+fi
